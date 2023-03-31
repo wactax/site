@@ -1,5 +1,6 @@
 > @w5/ossput
 
+put = await ossput process.env.BUCKET_SITE
+
 < (args...)=>
-  put = await ossput process.env.BUCKET_SITE
   put ...args
