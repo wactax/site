@@ -1,6 +1,5 @@
 > @w5/ossput
-  ./ossLi.mjs
 
 < (args...)=>
-  put = ossput await ossLi(process.env.BUCKET_SITE)
+  put = ossput process.env.BUCKET_SITE
   put ...args
