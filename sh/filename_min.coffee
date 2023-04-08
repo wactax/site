@@ -58,7 +58,7 @@ for await fp from await opendir DIST
 
 
 DB = knex {
-  client:  'better-sqlite3'
+  client:  'sqlite3'
   useNullAsDefault: true
   connection: {
     filename: join PWD, 'filename_min.db'

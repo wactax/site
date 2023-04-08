@@ -7,7 +7,6 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "wac.tax": "link:../ui",
     "@prettier/plugin-pug": "^2.4.2",
     "@sveltejs/vite-plugin-svelte": "^2.0.4",
     "@w5/blake3": "^0.0.6",
@@ -25,7 +24,6 @@
     "@w5/zipint": "^0.0.1",
     "base-p": "^2.0.0",
     "base-x": "^4.0.0",
-    "better-sqlite3": "^8.2.0",
     "coffeescript": "^2.7.0",
     "concurrently": "^8.0.1",
     "dotenv": "^16.0.3",
@@ -44,6 +42,10 @@
     "svgo": "^3.0.2",
     "typed.js": "^2.0.132",
     "uglify-js": "^3.17.4",
-    "vite": "^4.2.1"
+    "vite": "^4.2.1",
+    "wac.tax": "link:../ui"
+  },
+  "dependencies": {
+    "sqlite3": "^5.1.6"
   }
 }
