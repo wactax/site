@@ -81,13 +81,11 @@ config = {
     host
     port
     strictPort: true
-    ###
     proxy:
-      '^/[^@.]+$':
+      '[.@]|^\/i18n\/':
         target: "http://#{host}:#{port}"
         rewrite: (path)=>'/'
         changeOrigin: false
-    ###
   }
   resolve:
     alias:
