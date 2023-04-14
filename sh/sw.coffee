@@ -2,7 +2,7 @@
 
 > ./s3.cdn:
   ./env > DIST
-  ./put
+  @w5/ossput:put
   @w5/doge
   @w5/read
   path > join

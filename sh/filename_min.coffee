@@ -10,7 +10,7 @@
   ./mime
   knex
   ./env > DIST ROOT PWD
-  ./put
+  @w5/ossput:put
 
 BFILE = BaseX '!$-.0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz'
 

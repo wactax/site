@@ -2,7 +2,7 @@
 
 > ./env > DIST
   ./mime
-  ./put
+  @w5/ossput:put
   ./s3.ali:
   @w5/walk > walkRel
   fs > createReadStream

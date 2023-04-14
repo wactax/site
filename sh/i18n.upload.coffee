@@ -11,7 +11,7 @@
   @w5/zipint > zip
   @w5/read
   @w5/write
-  ./put
+  @w5/ossput:put
 
 {encodeInt,decodeToInt} = Radia64()
 
