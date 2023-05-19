@@ -33,7 +33,7 @@
     "knex": "^2.4.2",
     "lodash-es": "^4.17.21",
     "mime-types": "^2.1.35",
-    "msgpackr": "^1.9.1",
+    "msgpackr": "^1.9.2",
     "prettier": "^2.8.8",
     "pug": "^3.0.2",
     "radix-64": "^1.0.4",
@@ -42,7 +42,7 @@
     "svgo": "^3.0.2",
     "typed.js": "^2.0.132",
     "uglify-js": "^3.17.4",
-    "vite": "^4.3.7",
+    "vite": "^4.3.8",
     "wac.tax": "link:../ui"
   },
   "dependencies": {
