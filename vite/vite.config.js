@@ -120,15 +120,17 @@ config = {
   server: {
     host,
     port,
-    strictPort: true
+    strictPort: true,
+    proxy: {
+      '[.@]|^\/i18n\/': {
+        target: `http://${host}:${port}`,
+        rewrite: (path) => {
+          return '/';
+        },
+        changeOrigin: false
+      }
+    }
   },
-  /*
-  proxy:
-    '^/[^@.]+$':
-      target: "http://#{host}:#{port}"
-      rewrite: (path)=>'/'
-      changeOrigin: false
-  */
   resolve: {
     alias: {
       ":": join(ROOT, "file"),
