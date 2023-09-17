@@ -30,11 +30,13 @@ writeFileSync(
   pug.compileFile(join SRC, 'index.pug')({
   })
 )
-host = '0.0.0.0' or env.VITE_HOST
-port = 5555 or env.VITE_PORT
+{env} = process
+host = env.VITE_HOST or '0.0.0.0'
+port = env.VITE_PORT or port
 
 
-PRODUCTION = process.env.NODE_ENV == 'production'
+PRODUCTION = env.NODE_ENV == 'production'
+TARGET = ["esnext"]
 
 config = {
   publicDir: join ROOT, 'public'
@@ -96,14 +98,25 @@ config = {
     legalComments: 'none'
     treeShaking: true
   root: SRC
+  # css:
+    # transformer: 'lightningcss'
+    # lightningcss
+
   build:
+    cssMinify: 'lightningcss'
     outDir: DIST
     rollupOptions:
       input:
         index:SRC_INDEX_HTML
-    target:['chrome110']
+    target:TARGET
     assetsDir: '/'
     emptyOutDir: true
+  optimizeDeps:
+    # exclude:[
+    #   "@w5/vite"
+    # ]
+    esbuildOptions:
+      target: TARGET
 }
 
 config = merge config, await do =>
@@ -111,17 +124,29 @@ config = merge config, await do =>
     FILENAME = '[name].[hash].[ext]'
     JSNAME = '[name].[hash].js'
 
+    if env.DEBUG
+      base = '/'
+      minify = false
+    else
+      base = env.CDN or '/'
+      minify = true
+
     return {
       plugins:[
-        (await import('./plugin/mini_html.js')).default
+        (
+          await import('./plugin/mini_html.js')
+        ).default
       ]
-      base: '//usr.tax/'
-      build:
-        rollupOptions:
+      base
+      build:{
+        minify
+        rollupOptions:{
           output:
             chunkFileNames: JSNAME
             assetFileNames: FILENAME
             entryFileNames: "m.js"
+        }
+      }
     }
   else
     return {
